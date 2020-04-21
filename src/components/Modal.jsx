@@ -8,7 +8,7 @@ const Modal = ({ top, left, onClose, children }) => (
     className="modal-container"
     style={{
       top,
-      left: left - 63,
+      left: left - 50,
     }}
   >
     <div className="modal-content">
