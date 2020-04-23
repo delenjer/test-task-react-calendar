@@ -1,5 +1,6 @@
 - The task is to create a calendar with the ability to add events.
-- Task link - https://delenjer.github.io/test-task-react-calendar/
+- Project link - https://delenjer.github.io/test-task-react-calendar/
+
 
 
 ReactJS test task
