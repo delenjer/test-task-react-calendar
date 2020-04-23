@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import '../styles/select.scss';
+import './select.scss';
 
-const Select = ({
+export const Select = ({
   placeholder,
   options,
   onSelect,
@@ -78,5 +78,3 @@ Select.propTypes = {
   errorText: PropTypes.string,
   value: PropTypes.string,
 };
-
-export default Select;

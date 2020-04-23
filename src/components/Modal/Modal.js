@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import '../styles/modal.scss';
+import './modal.scss';
 
-const Modal = ({ top, left, onClose, children }) => (
+export const Modal = ({ top, left, onClose, children }) => (
   <div
     className="modal-container"
     style={{
@@ -36,5 +36,3 @@ Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   children: PropTypes.element,
 };
-
-export default Modal;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import withDragAndDrop from 'react-big-calendar/lib/addons/dragAndDrop';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -7,18 +8,18 @@ import moment from 'moment';
 
 import { UIDv4, formatDateForList, formatDateOnCreateEvent } from '../../utils';
 
-import initialEvents from '../../constants/initialEvents';
-import calendarFormats from '../../constants/calendarFormats';
+import { initialEvents } from '../../constants/initialEvents';
+import { calendarFormats } from '../../constants/calendarFormats';
 
-import Modal from '../../components/Modal';
+import { Modal } from '../Modal/Modal';
 
-import '../../styles/calendar.scss';
+import './calendar.scss';
 
 import { CreateEventForm, EditEventForm, WeekHeader } from './components';
 
 const localizer = momentLocalizer(moment);
 
-const BigCalendar = () => {
+export const BigCalendar = () => {
   const [createModalOpen, setCreateModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
 
@@ -191,5 +192,3 @@ const BigCalendar = () => {
     </div>
   );
 };
-
-export default BigCalendar;

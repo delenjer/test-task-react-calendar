@@ -1,15 +1,26 @@
-@import "colors.scss";
+@import "../../styles/colors.scss";
 
 .modal-container {
   position: absolute;
-  z-index: 9999;
+  z-index: 10;
   width: 201px;
-  height: 300px;
   box-sizing: border-box;
   box-shadow: 0 3px 18px #00000029;
   border: 1px solid #43425d;
   border-radius: 10px;
   background: $white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border: 9px solid transparent;
+    border-bottom: 11px solid #43425d;
+  }
 }
 
 .modal-content {

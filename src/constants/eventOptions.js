@@ -1,4 +1,4 @@
-const eventOptions = [
+export const eventOptions = [
   {
     id: 'birthday',
     name: 'birthday',
@@ -16,5 +16,3 @@ const eventOptions = [
     name: 'meeting',
   },
 ];
-
-export default eventOptions;

@@ -3,23 +3,15 @@ import moment from 'moment';
 
 import { UIDv4 } from '../utils';
 
-const initialEvents = [
+export const initialEvents = [
   {
     id: UIDv4(),
-    title: "Mama's Bithday",
+    title: "Get a job",
     start: moment().add(1, 'days')._d,
     end: moment().add(1, 'days')._d,
-    type: 'birthday',
+    type: 'reminder',
     allDay: true,
-    notes: 'Send flowers',
-  },
-  {
-    id: UIDv4(),
-    title: 'Check schedule',
-    start: moment().startOf('hour')._d,
-    end: moment().endOf('hour')._d,
-    type: 'personal',
-    notes: '💪 More gym 💪',
+    notes: 'In the near future.',
   },
   {
     id: UIDv4(),
@@ -35,24 +27,4 @@ const initialEvents = [
     type: 'reminder',
     notes: 'At least a glass.',
   },
-  {
-    id: UIDv4(),
-    title: 'Grooming',
-    start: moment()
-      .add(3, 'days')
-      .set({
-        hour: 11,
-        minute: 0,
-      })._d,
-    end: moment()
-      .add(3, 'days')
-      .set({
-        hour: 12,
-        minute: 30,
-      })._d,
-    type: 'meeting',
-    notes: 'Pay attention',
-  },
 ];
-
-export default initialEvents;

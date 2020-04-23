@@ -3,21 +3,20 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Formik } from 'formik';
 
-import eventOptions from '../../../constants/eventOptions';
+import { eventOptions } from '../../../constants/eventOptions';
 import { FORM_DATE, FORM_TIME } from '../../../constants/dateTimeFormats';
 
-import Select from '../../../components/Select';
+import { Select } from '../../Select/Select';
 
-const EditEventForm = ({ eventInfo, onCancel, onSubmit }) => {
+const CreateEventForm = ({ start, end, onCancel, onSubmit }) => {
   const initialValues = {
-    title: eventInfo.title,
-    date: moment(eventInfo.start).format(FORM_DATE),
-    time: `${moment(eventInfo.start).format(FORM_TIME)} - ${moment(
-      eventInfo.end,
-    ).format(FORM_TIME)}`,
-    notes: eventInfo.notes,
-    color: eventInfo.type,
-    id: eventInfo.id,
+    title: '',
+    date: moment(start).format(FORM_DATE),
+    time: `${moment(start).format(FORM_TIME)} - ${moment(end).format(
+      FORM_TIME,
+    )}`,
+    notes: '',
+    color: '',
   };
 
   const onChange = ({ name, value }, formikMethod) => {
@@ -51,6 +50,12 @@ const EditEventForm = ({ eventInfo, onCancel, onSubmit }) => {
         if (values.date === '') {
           errors = {
             ...errors, date: 'Date is required',
+          };
+        }
+
+        if (values.date && moment(values.date, FORM_DATE).isBefore()) {
+          errors = {
+            ...errors, date: 'Date should be in future',
           };
         }
 
@@ -207,14 +212,14 @@ const EditEventForm = ({ eventInfo, onCancel, onSubmit }) => {
 
           <div className="button-group">
             <button onClick={onCancel} type="button">
-              Discard
+              Cancel
             </button>
             <button
               onClick={submitForm}
               type="button"
               disabled={isSubmitting || !isValid}
             >
-              Edit
+              Save
             </button>
           </div>
         </form>
@@ -223,17 +228,11 @@ const EditEventForm = ({ eventInfo, onCancel, onSubmit }) => {
   );
 };
 
-EditEventForm.propTypes = {
-  eventInfo: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-    notes: PropTypes.string,
-    type: PropTypes.string,
-    start: PropTypes.instanceOf(Date),
-    end: PropTypes.instanceOf(Date),
-  }).isRequired,
+CreateEventForm.propTypes = {
+  start: PropTypes.instanceOf(Date).isRequired,
+  end: PropTypes.instanceOf(Date).isRequired,
   onCancel: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default EditEventForm;
+export default CreateEventForm;
