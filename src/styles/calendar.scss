@@ -20,6 +20,7 @@
     button {
       border: 1px solid $light-gray;
       background-color: $white;
+      cursor: pointer;
 
       &:hover,
       &:active:hover,
