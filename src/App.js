@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { UseCalendar } from './components/Usecalendar/UseCalendar';
+import { BigCalendar } from './components/BigCalendar/BigCalendar';
 
 import './App.scss';
 
 const App = () => (
-  <UseCalendar />
+  <BigCalendar />
 );
 
 export default App;

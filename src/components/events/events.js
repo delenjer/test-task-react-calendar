@@ -1,7 +1,7 @@
 import moment from 'moment';
 
-export const event = {
-  events: [
+export const events = {
+  event: [
     {
       start: moment(),
       end: moment()

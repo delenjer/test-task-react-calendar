@@ -1,10 +1,9 @@
-@import '../../styles/colors';
+@import "../../styles/colors";
 
 .calendar-container {
   margin: 10px auto;
   padding: 20px;
   max-width: 1170px;
-  height: 100vh;
   background: $white;
   box-shadow: 0 2px 6px $whisper;
 }
@@ -199,9 +198,13 @@
 .rbc-event.rbc-selected {
   background: transparent;
   border: 1px solid $blue;
-  color: $blue;
+  color: $white;
 }
 
 .rbc-agenda-table {
   color: $white;
+}
+
+.rbc-month-row {
+  min-height: 120px;
 }

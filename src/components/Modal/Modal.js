@@ -1,38 +1,51 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import './modal.scss';
 
-export const Modal = ({ top, left, onClose, children }) => (
-  <div
-    className="modal-container"
-    style={{
-      top,
-      left: left - 50,
-    }}
-  >
-    <div className="modal-content">
-      <div
-        className="close"
-        onClick={onClose}
-        onKeyPress={onClose}
-        role="button"
-        tabIndex="0"
-      >
-        <i className="fa fa-times-circle" />
-      </div>
-      {children}
-    </div>
-  </div>
-);
+export const Modal = ({ onClose, x, y, children }) => {
+  const ref = useRef(null);
+  const handleClick = (e) => {
+    if (ref.current && !ref.current.contains(e.target)) {
+      onClose();
+    }
+  };
 
-Modal.defaultProps = {
-  children: null,
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  });
+
+  return (
+    <div className="modal__backdrop">
+      <div
+        className="modal__wrapper"
+        ref={ref}
+        style={{
+          top: `${x + 10}px`, left: `${y - 100}px`,
+        }}
+      >
+        <button
+          type="button"
+          className="modal__close"
+          onClick={onClose}
+        >
+          <i className="fa fa-times-circle" />
+        </button>
+        <div className="modal__content">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 Modal.propTypes = {
-  top: PropTypes.number.isRequired,
-  left: PropTypes.number.isRequired,
+  x: PropTypes.number.isRequired,
+  y: PropTypes.number.isRequired,
   onClose: PropTypes.func.isRequired,
-  children: PropTypes.element,
+  children: PropTypes.element.isRequired,
 };

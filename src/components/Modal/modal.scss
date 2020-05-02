@@ -1,118 +1,43 @@
 @import "../../styles/colors.scss";
 
-.modal-container {
-  position: absolute;
-  z-index: 10;
-  width: 201px;
-  box-sizing: border-box;
-  box-shadow: 0 3px 18px #00000029;
-  border: 1px solid #43425d;
-  border-radius: 10px;
-  background: $white;
-
-  &::before {
-    content: "";
+.modal {
+  &__wrapper {
     position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border: 9px solid transparent;
-    border-bottom: 11px solid #43425d;
-  }
-}
+    background: $main-light;
+    border-radius: 10px;
+    border: 1px solid $black;
+    box-shadow: 0 3px 18px $light-gray;
+    z-index: 100;
+    max-width: 200px;
+    padding: 22px 25px 35px;
 
-.modal-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
-}
-
-.close {
-  position: absolute;
-  top: 6px;
-  right: 7px;
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
-  }
-
-  svg {
-    color: $alto;
-  }
-}
-
-.input-group {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: space-between;
-  color: $alto;
-  font-size: 9px;
-
-  input {
-    border-bottom: 1px solid $alto;
-    width: 100%;
-  }
-
-  .icon-container {
-    border-bottom: 1px solid $alto;
-  }
-
-  .fa-calendar-alt {
-    width: 18px;
-    height: 20px;
-  }
-
-  .fa-clock {
-    width: 20px;
-    height: 20px;
-  }
-
-  .error-input {
-    border-bottom: 1px solid $bittersweet;
-  }
-}
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.button-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-
-  button {
-    cursor: pointer;
-
-    &:focus {
-      outline: none;
-    }
-
-    &:disabled {
-      cursor: not-allowed;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border: 9px solid transparent;
+      border-bottom: 11px solid $black;
     }
   }
 
-  button:first-child {
-    color: $bittersweet;
-  }
+  &__close {
+    background: transparent;
+    font-size: 15px;
+    border: none;
+    position: absolute;
+    right: 6px;
+    padding: 0;
+    top: 7px;
+    color: #d6d6d6;
+    transition: color 0.3s ease-in-out;
 
-  button:last-child {
-    color: $kimberly;
-  }
-}
+    &:hover::before {
+      color: $accent;
+    }
 
-.text-error {
-  position: absolute;
-  bottom: -12px;
-  left: 0;
-  color: $bittersweet;
+  }
 }

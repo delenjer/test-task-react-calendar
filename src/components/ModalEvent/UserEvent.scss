@@ -1,0 +1,108 @@
+.event {
+  &__error {
+    font-size: 10px;
+    color: #ff5f5f;
+  }
+
+  &__input {
+    background: transparent;
+    border: none;
+    line-height: 20px;
+    border-bottom: 1px solid #586375;
+    width: 100%;
+    display: block;
+
+    &--error {
+      border-bottom-color: #ff5f5f;
+    }
+
+    &:placeholder-shown {
+      color: #d6d6d6;
+    }
+
+    &:enabled:hover,
+    &:enabled:focus {
+      outline: 0 none;
+      outline-offset: 0;
+      box-shadow: none;
+      border-color: transparent;
+      border-bottom-color: #3b86ff;
+    }
+  }
+
+  &__buttons-color {
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    color: #677489;
+    padding: 0;
+    margin: 20px 0;
+
+    &:hover {
+      color: #3b86ff;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  padding: 5px;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+
+  &__event {
+    background: transparent;
+    border: none;
+    font-size: 12px;
+
+    &--danger {
+      color: #ff5f5f;
+    }
+
+    &--edit {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.calendar-box {
+  position: relative;
+  margin: 20px 0;
+}
+
+.icon-min {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translate(0, -50%);
+  color: #d6d6d6;
+  font-size: 20px;
+}
+
+body .p-inputtext {
+  width: 105%;
+  font-size: 12px;
+  border: none;
+  border-bottom: 1px solid #586375;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+body .p-inputtext:enabled:hover {
+  border-color: #3b86ff;
+}
+
+body .p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2em #8dcdff;
+  border-color: #3b86ff;
+}
+
+.slider-picker {
+  margin-bottom: 15px;
+}
