@@ -20,7 +20,7 @@ export const Modal = ({ onClose, x, y, children }) => {
   });
 
   return (
-    <div className="modal__backdrop">
+    <div className="modal">
       <div
         className="modal__wrapper"
         ref={ref}
